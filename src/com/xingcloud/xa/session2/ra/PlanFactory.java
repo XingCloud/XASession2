@@ -70,6 +70,10 @@ public class PlanFactory {
 		PlanFactory f = getInstance();
 
 		//DAU
+		//SELECT COUNT(DISTINCT(uid))
+		// FROM event NATURAL JOIN user
+		// WHERE user.register_time='2013-02-01'
+		// AND event.date='2013-02-02' and event.event='visit'
 		f.newGroupCount().setInput(
 				f.newDistinct().setInput(
 						f.newJoin().setInput(
