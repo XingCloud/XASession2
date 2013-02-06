@@ -39,7 +39,52 @@ public class PlanFactory {
 		return null;
 	}
 
+	public Distinct newDistinct(){
+		return (Distinct) createOpeation(Distinct.class);
+	}
+	public GroupCount newGroupCount(){
+		return (GroupCount) createOpeation(GroupCount.class);
+	}
+
+	public GroupSum newGroupSum(){
+		return (GroupSum) createOpeation(GroupSum.class);
+	}
+
+	public Join newJoin(){
+		return (Join) createOpeation(Join.class);
+	}
+
+	public Projection newProjection(){
+		return (Projection) createOpeation(Projection.class);
+	}
+
+	public Selection newSelection(){
+		return (Selection) createOpeation(Selection.class);
+	}
+
+	public TableScan newTableScan(String tableName){
+		return new XTableScan(tableName);
+	}
+
 	public static void main(String[] args) {
-		getInstance().createOpeation(Distinct.class);
+		PlanFactory f = getInstance();
+
+		//DAU
+		f.newGroupCount().setInput(
+				f.newDistinct().setInput(
+						f.newJoin().setInput(
+								f.newSelection().setInput(
+										f.newTableScan("user"),
+										new XExpression("register_time='2013-02-01'")
+								),
+								f.newSelection().setInput(
+										f.newTableScan("event"),
+										new XExpression("date='2013-02-02' and event='visit'")
+								)
+						),
+						"uid"
+				)
+				,null
+		);
 	}
 }

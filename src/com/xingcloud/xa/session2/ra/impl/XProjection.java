@@ -12,8 +12,9 @@ import java.util.List;
  * Date:   2/6/13
  */
 public class XProjection extends AbstractOperation implements Projection{
-	public void setInput(RelationProvider relation, List<String> columnNames) {
+	public Projection setInput(RelationProvider relation, List<String> columnNames) {
 		//TODO method implementation
+		return this;
 	}
 
 	public Relation evaluate() {

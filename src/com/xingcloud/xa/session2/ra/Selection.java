@@ -7,5 +7,5 @@ package com.xingcloud.xa.session2.ra;
  * 输出表达式计算结果为true的行。
  */
 public interface Selection extends Operation {
-	void setInput(RelationProvider relation, Expression e);
+	Selection setInput(RelationProvider relation, Expression e);
 }

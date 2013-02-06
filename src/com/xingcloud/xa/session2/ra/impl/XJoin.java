@@ -10,8 +10,9 @@ import com.xingcloud.xa.session2.ra.Row;
  * Date:   2/6/13
  */
 public class XJoin extends AbstractOperation implements Join{
-	public void setInput(RelationProvider left, RelationProvider right) {
+	public Join setInput(RelationProvider left, RelationProvider right) {
 		//TODO method implementation
+		return this;
 	}
 
 	public Relation evaluate() {

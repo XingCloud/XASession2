@@ -7,8 +7,9 @@ import com.xingcloud.xa.session2.ra.*;
  * Date:   2/6/13
  */
 public class XSelection extends AbstractOperation implements Selection{
-	public void setInput(RelationProvider relation, Expression e) {
+	public Selection setInput(RelationProvider relation, Expression e) {
 		//TODO method implementation
+		return this;
 	}
 
 	public Relation evaluate() {

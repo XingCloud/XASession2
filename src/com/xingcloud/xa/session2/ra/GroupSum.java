@@ -9,5 +9,5 @@ package com.xingcloud.xa.session2.ra;
  * 输出：一个两列的relation：一列是不同的expression的取值；另一列是每一个取值对应的sum结果。
  */
 public interface GroupSum extends Operation {
-	void setInput(RelationProvider relation, String colName, Expression groupbyExpression);
+	GroupSum setInput(RelationProvider relation, String colName, Expression groupbyExpression);
 }

@@ -7,5 +7,5 @@ package com.xingcloud.xa.session2.ra;
  * 输出：根据相同列名的自然连接的关系。
  */
 public interface Join extends Operation {
-	void setInput(RelationProvider left, RelationProvider right);
+	Join setInput(RelationProvider left, RelationProvider right);
 }

@@ -7,5 +7,5 @@ package com.xingcloud.xa.session2.ra;
  * 输出一个和输入的relation有同样列的去重后的relation。
  */
 public interface Distinct extends Operation{
-	void setInput(RelationProvider relation, String colName);
+	Distinct setInput(RelationProvider relation, String colName);
 }

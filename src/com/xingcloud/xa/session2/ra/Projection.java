@@ -9,5 +9,5 @@ import java.util.List;
  * 输出一个和输入relation同样行的relation
  */
 public interface Projection extends Operation {
-	void setInput(RelationProvider relation, List<String> columnNames);
+	Projection setInput(RelationProvider relation, List<String> columnNames);
 }

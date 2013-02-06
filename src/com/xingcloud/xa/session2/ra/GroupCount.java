@@ -9,5 +9,11 @@ package com.xingcloud.xa.session2.ra;
  * 输出：一个两列的relation：一列是不同的expression的取值；另一列是每一个取值对应的count行数。
  */
 public interface GroupCount extends Operation{
-	void setInput(RelationProvider relation, Expression groupbyExpression);
+	/**
+	 *
+	 * @param relation
+	 * @param groupbyExpression
+	 * @return self. 为了操作方便
+	 */
+	GroupCount setInput(RelationProvider relation, Expression groupbyExpression);
 }

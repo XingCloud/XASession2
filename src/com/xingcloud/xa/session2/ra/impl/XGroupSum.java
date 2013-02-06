@@ -7,8 +7,9 @@ import com.xingcloud.xa.session2.ra.*;
  * Date:   2/6/13
  */
 public class XGroupSum extends AbstractOperation implements GroupSum{
-	public void setInput(RelationProvider relation, String colName, Expression groupbyExpression) {
+	public GroupSum setInput(RelationProvider relation, String colName, Expression groupbyExpression) {
 		//TODO method implementation
+		return this;
 	}
 
 	public Relation evaluate() {

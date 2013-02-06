@@ -10,8 +10,9 @@ import com.xingcloud.xa.session2.ra.Row;
  * Date:   2/6/13
  */
 public class XDistinct extends AbstractOperation implements Distinct {
-	public void setInput(RelationProvider relation, String colName) {
+	public Distinct setInput(RelationProvider relation, String colName) {
 		//TODO method implementation
+		return this;
 	}
 
 	public Relation evaluate() {
