@@ -9,7 +9,7 @@ import com.xingcloud.xa.session2.ra.Row;
  * Author: mulisen
  * Date:   2/6/13
  */
-public class XJoin implements Join {
+public class XJoin extends AbstractOperation implements Join{
 	public void setInput(RelationProvider left, RelationProvider right) {
 		//TODO method implementation
 	}
@@ -18,7 +18,4 @@ public class XJoin implements Join {
 		return null;  //TODO method implementation
 	}
 
-	public Row nextRow() {
-		return null;  //TODO method implementation
-	}
 }

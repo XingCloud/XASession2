@@ -6,7 +6,7 @@ import com.xingcloud.xa.session2.ra.*;
  * Author: mulisen
  * Date:   2/6/13
  */
-public class XGroupSum implements GroupSum {
+public class XGroupSum extends AbstractOperation implements GroupSum{
 	public void setInput(RelationProvider relation, String colName, Expression groupbyExpression) {
 		//TODO method implementation
 	}
@@ -15,7 +15,4 @@ public class XGroupSum implements GroupSum {
 		return null;  //TODO method implementation
 	}
 
-	public Row nextRow() {
-		return null;  //TODO method implementation
-	}
 }

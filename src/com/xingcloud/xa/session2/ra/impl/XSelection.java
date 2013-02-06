@@ -6,7 +6,7 @@ import com.xingcloud.xa.session2.ra.*;
  * Author: mulisen
  * Date:   2/6/13
  */
-public class XSelection implements Selection {
+public class XSelection extends AbstractOperation implements Selection{
 	public void setInput(RelationProvider relation, Expression e) {
 		//TODO method implementation
 	}
@@ -15,7 +15,4 @@ public class XSelection implements Selection {
 		return null;  //TODO method implementation
 	}
 
-	public Row nextRow() {
-		return null;  //TODO method implementation
-	}
 }

@@ -9,7 +9,7 @@ import com.xingcloud.xa.session2.ra.Row;
  * Author: mulisen
  * Date:   2/6/13
  */
-public class XDistinct implements Distinct {
+public class XDistinct extends AbstractOperation implements Distinct {
 	public void setInput(RelationProvider relation, String colName) {
 		//TODO method implementation
 	}
@@ -18,7 +18,4 @@ public class XDistinct implements Distinct {
 		return null;  //TODO method implementation
 	}
 
-	public Row nextRow() {
-		return null;  //TODO method implementation
-	}
 }
