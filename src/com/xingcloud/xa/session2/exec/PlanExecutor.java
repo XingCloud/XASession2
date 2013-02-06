@@ -10,7 +10,7 @@ import com.xingcloud.xa.session2.ra.RelationProvider;
 public class PlanExecutor {
 
 	public static RelationProvider executePlan(Operation root){
-		//todo
+		//TODO 执行root为根节点的Plan，返回执行结果
 		return null;
 	}
 }

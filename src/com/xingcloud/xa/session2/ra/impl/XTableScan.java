@@ -17,6 +17,6 @@ public class XTableScan extends AbstractOperation implements TableScan {
 	}
 
 	public Relation evaluate() {
-		return null;  //TODO method implementation
+		return null;  //TODO method implementation immars
 	}
 }

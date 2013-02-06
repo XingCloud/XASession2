@@ -1,4 +1,6 @@
-package com.xingcloud.xa.session2.ra;
+package com.xingcloud.xa.session2.ra.expr;
+
+import com.xingcloud.xa.session2.ra.Row;
 
 /**
  * Author: mulisen
@@ -6,5 +8,5 @@ package com.xingcloud.xa.session2.ra;
  * 对一行进行一个表达式计算，输出一个标量结果。
  */
 public interface Expression {
-	String calculate(Row input);
+	Object evaluate(Row input);
 }

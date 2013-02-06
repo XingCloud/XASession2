@@ -1,5 +1,7 @@
 package com.xingcloud.xa.session2.ra;
 
+import com.xingcloud.xa.session2.ra.expr.Expression;
+
 import java.util.List;
 
 /**
@@ -9,5 +11,5 @@ import java.util.List;
  * 输出一个和输入relation同样行的relation
  */
 public interface Projection extends Operation {
-	Projection setInput(RelationProvider relation, List<String> columnNames);
+	Projection setInput(RelationProvider relation, List<Expression> columnProjections);
 }
