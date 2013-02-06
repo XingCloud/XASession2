@@ -17,6 +17,6 @@ public class Div implements Expression {
 	}
 
 	public Object evaluate(Row input) {
-		return null;  //TODO method implementation
+		return (Double)left.evaluate(input) / (Double)right.evaluate(input);
 	}
 }

@@ -17,6 +17,6 @@ public class Equals implements Expression {
 	}
 
 	public Object evaluate(Row input) {
-		return null;  //TODO method implementation
+		return (Boolean)left.evaluate(input).equals(right.evaluate(input));
 	}
 }

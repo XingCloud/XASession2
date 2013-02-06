@@ -15,6 +15,6 @@ public class Not implements Expression {
 	}
 
 	public Object evaluate(Row input) {
-		return null;  //TODO method implementation
+		return !(Boolean)evaluate(input);
 	}
 }
