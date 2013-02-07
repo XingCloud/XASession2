@@ -11,6 +11,9 @@ public class ExpressionBuilder {
 	public static Sub sub(Expression left, Expression right){
 		return new Sub(left, right);
 	}
+    public static Multiple mul(Expression left, Expression right){
+        return new Multiple(left, right);
+    }
 	public static Div div(Expression left, Expression right){
 		return new Div(left, right);
 	}
@@ -29,4 +32,19 @@ public class ExpressionBuilder {
 	public static ColumnValue column(String columnName){
 		return new ColumnValue(columnName);
 	}
+    public static And and(Expression left, Expression right){
+        return new And(left, right);
+    }
+    public static Or or(Expression left, Expression right){
+        return new Or(left, right);
+    }
+    public static Between between(Expression left, Expression start, Expression end){
+        return new Between(left, start, end);
+    }
+    public static Greater gt(Expression left, Expression right){
+        return new Greater(left, right);
+    }
+    public static GreaterEqual gte(Expression left, Expression right){
+        return new GreaterEqual(left, right);
+    }
 }
