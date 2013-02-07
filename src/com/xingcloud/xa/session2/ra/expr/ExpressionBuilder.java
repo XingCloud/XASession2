@@ -29,4 +29,11 @@ public class ExpressionBuilder {
 	public static ColumnValue column(String columnName){
 		return new ColumnValue(columnName);
 	}
+	public static And and(Expression left, Expression right){
+		return new And(left, right);
+	}
+	public static Or or(Expression left, Expression right){
+		return new Or(left, right);
+	}
+
 }
