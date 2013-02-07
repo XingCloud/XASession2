@@ -1,6 +1,10 @@
 package com.xingcloud.xa.session2.ra;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.ExpressionBuilder;
+import com.sun.tools.doclets.internal.toolkit.builders.ConstantsSummaryBuilder;
+import com.xingcloud.xa.session2.ra.expr.And;
+import com.xingcloud.xa.session2.ra.expr.ColumnValue;
+import com.xingcloud.xa.session2.ra.expr.Constant;
+import com.xingcloud.xa.session2.ra.expr.Equals;
 import com.xingcloud.xa.session2.ra.impl.*;
 
 import java.util.Hashtable;
@@ -20,8 +24,7 @@ public class PlanFactory {
 		implementations.put("Projection", XProjection.class);
 		implementations.put("Selection", XSelection.class);
 		implementations.put("Join", XJoin.class);
-		implementations.put("GroupCount", XGroupCount.class);
-		implementations.put("GroupSum", XGroupSum.class);
+		implementations.put("Group", XGroup.class);
 	}
 
 	public static PlanFactory getInstance(){
@@ -43,12 +46,16 @@ public class PlanFactory {
 	public Distinct newDistinct(){
 		return (Distinct) createOpeation(Distinct.class);
 	}
-	public GroupCount newGroupCount(){
-		return (GroupCount) createOpeation(GroupCount.class);
+
+	public Group newGroup(){
+		return (Group) createOpeation(Group.class);
+	}
+	public Count newCount(){
+		return new XCount();
 	}
 
-	public GroupSum newGroupSum(){
-		return (GroupSum) createOpeation(GroupSum.class);
+	public Sum newSum(){
+		return new XSum();
 	}
 
 	public Join newJoin(){
@@ -75,21 +82,23 @@ public class PlanFactory {
 		// FROM event NATURAL JOIN user
 		// WHERE user.register_time='2013-02-01'
 		// AND event.date='2013-02-02' and event.event='visit'
-		f.newGroupCount().setInput(
+		f.newGroup().setInput(
 				f.newDistinct().setInput(
 						f.newJoin().setInput(
 								f.newSelection().setInput(
 										f.newTableScan("user"),
-										new XExpression("register_time='2013-02-01'")
+										new Equals(new ColumnValue("register_time"), new Constant("2013-02-01"))
 								),
 								f.newSelection().setInput(
 										f.newTableScan("event"),
-										new XExpression("date='2013-02-02' and event='visit'")
+										new And(new Equals(new ColumnValue("date"), new Constant("2013-02-02")),
+												new Equals(new ColumnValue("event"), new Constant("visit"))
+										)
 								)
 						),
 						"uid"
 				)
-				,null
+				,null,null
 		);
 	}
 }
