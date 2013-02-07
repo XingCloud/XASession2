@@ -1,6 +1,5 @@
 package com.xingcloud.xa.session2.ra;
 
-import com.sun.tools.doclets.internal.toolkit.builders.ConstantsSummaryBuilder;
 import com.xingcloud.xa.session2.ra.expr.And;
 import com.xingcloud.xa.session2.ra.expr.ColumnValue;
 import com.xingcloud.xa.session2.ra.expr.Constant;
@@ -31,7 +30,7 @@ public class PlanFactory {
 		return instance;
 	}
 
-	public Operation createOpeation(Class<? extends Operation> clz){
+	public Operation createOperation(Class<? extends Operation> clz){
 		Class<? extends Operation> implementClz = implementations.get(clz.getSimpleName());
 		try {
 			return implementClz.newInstance();
@@ -44,11 +43,11 @@ public class PlanFactory {
 	}
 
 	public Distinct newDistinct(){
-		return (Distinct) createOpeation(Distinct.class);
+		return (Distinct) createOperation(Distinct.class);
 	}
 
 	public Group newGroup(){
-		return (Group) createOpeation(Group.class);
+		return (Group) createOperation(Group.class);
 	}
 	public Count newCount(){
 		return new XCount();
@@ -59,15 +58,15 @@ public class PlanFactory {
 	}
 
 	public Join newJoin(){
-		return (Join) createOpeation(Join.class);
+		return (Join) createOperation(Join.class);
 	}
 
 	public Projection newProjection(){
-		return (Projection) createOpeation(Projection.class);
+		return (Projection) createOperation(Projection.class);
 	}
 
 	public Selection newSelection(){
-		return (Selection) createOpeation(Selection.class);
+		return (Selection) createOperation(Selection.class);
 	}
 
 	public TableScan newTableScan(String tableName){
@@ -96,7 +95,7 @@ public class PlanFactory {
 										)
 								)
 						),
-						"uid"
+						new ColumnValue("uid")
 				)
 				,null,null
 		);

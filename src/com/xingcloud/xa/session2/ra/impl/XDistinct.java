@@ -4,13 +4,14 @@ import com.xingcloud.xa.session2.ra.Distinct;
 import com.xingcloud.xa.session2.ra.Relation;
 import com.xingcloud.xa.session2.ra.RelationProvider;
 import com.xingcloud.xa.session2.ra.Row;
+import com.xingcloud.xa.session2.ra.expr.Expression;
 
 /**
  * Author: mulisen
  * Date:   2/6/13
  */
 public class XDistinct extends AbstractOperation implements Distinct {
-	public Distinct setInput(RelationProvider relation, String colName) {
+	public Distinct setInput(RelationProvider relation, Expression ... expressions ) {
 		//TODO method implementation
 		return this;
 	}

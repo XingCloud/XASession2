@@ -11,5 +11,5 @@ import java.util.List;
  * 输出一个和输入relation同样行的relation
  */
 public interface Projection extends Operation {
-	Projection setInput(RelationProvider relation, List<Expression> columnProjections);
+	Projection setInput(RelationProvider relation, Expression ... projections);
 }
