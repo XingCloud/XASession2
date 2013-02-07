@@ -19,7 +19,6 @@ public class SelectVisitorImpl implements SelectVisitor {
         return operation;
     }
 
-    @Override
     public void visit(PlainSelect plainSelect) {
         //Get from relation provider
         FromItem fromItem = plainSelect.getFromItem();
@@ -80,8 +79,6 @@ public class SelectVisitorImpl implements SelectVisitor {
 
     }
 
-    @Override
     public void visit(Union union) {
-        //TODO need implements
     }
 }

@@ -15,12 +15,13 @@ public class Tests {
     public static String sql3 = "SELECT COUNT(DISTINCT(uid))\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
 			                    "WHERE user.register_time='2013-02-01'\n" +
-			                    "AND event.date='2013-02-02' and event.event='visit';";
+			                    "AND event.date='2013-02-02' AND event.event='visit';";
 
     public static String sql4 = "SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(event.value)\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
 			                    "WHERE user.register_time='2013-02-01'\n" +
-			                    "AND event.date='2013-02-02' and event.event='visit' group by user.ref0;";
+			                    "AND event.date='2013-02-02' AND event.event='visit' " +
+								"GROUP BY user.ref0;";
 
 
 	public static void main(String[] args) throws JSQLParserException {

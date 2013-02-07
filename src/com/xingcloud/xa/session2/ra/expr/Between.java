@@ -18,13 +18,8 @@ public class Between implements Expression {
         this.end = end;
     }
 
-    @Override
     public Object evaluate(Row input) {
-        Object l = left.evaluate(input);
-        Object s = start.evaluate(input);
-        Object e = end.evaluate(input);
-
-        //TODO
-        return null;
+		return (Double) start.evaluate(input) < (Double) left.evaluate(input)
+				|| (Double) left.evaluate(input) < (Double) end.evaluate(input);
     }
 }

@@ -31,10 +31,11 @@ XASession2
     SELECT COUNT(DISTINCT(uid))
     	FROM (event NATURAL JOIN user)
     	WHERE user.register_time='2013-02-01'
-    	AND event.date='2013-02-02' and event.event='visit';
+    	AND event.date='2013-02-02' AND event.event='visit';
 
-    SELECT user.ref0, COUNT(DISTINCT(uid)), sum(event.value)
+    SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(event.value)
     	FROM (event NATURAL JOIN user)
 		WHERE user.register_time='2013-02-01'
-		AND event.date='2013-02-02' and event.event='visit' group by user.ref0;
+		AND event.date='2013-02-02' AND event.event='visit'
+		GROUP BY user.ref0;
 
