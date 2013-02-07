@@ -6,14 +6,10 @@ import com.xingcloud.xa.session2.ra.Row;
  * Author: mulisen
  * Date:   2/6/13
  */
-public class Multiple implements Expression {
-
-	Expression left;
-	Expression right;
+public class Multiple extends BinaryExpression  {
 
 	public Multiple(Expression left, Expression right) {
-		this.left = left;
-		this.right = right;
+		super(left, right);
 	}
 
 	public Object evaluate(Row input) {

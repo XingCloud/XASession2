@@ -8,7 +8,7 @@ import com.xingcloud.xa.session2.ra.Row;
  */
 public class ColumnValue implements Expression {
 
-	String columnName;
+	public String columnName;
 
 	public ColumnValue(String columnName) {
 		this.columnName = columnName;

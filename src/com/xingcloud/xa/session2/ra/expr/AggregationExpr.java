@@ -10,14 +10,14 @@ import com.xingcloud.xa.session2.ra.Row;
 
 public class AggregationExpr implements Expression {
 
-	Aggregation aggregation;
+	public Aggregation aggregation;
 
 	public AggregationExpr(Aggregation aggregation) {
 		this.aggregation = aggregation;
 	}
 
 	public Object evaluate(Row input) {
-		return aggregation.evaluate();
+		return aggregation.aggregate();
 	}
 
 	public void init(){

@@ -10,7 +10,7 @@ import com.xingcloud.xa.session2.ra.TableScan;
  */
 public class XTableScan extends AbstractOperation implements TableScan {
 
-	private String tableName;
+	String tableName;
 
 	public XTableScan(String tableName) {
 		this.tableName = tableName;
@@ -18,5 +18,10 @@ public class XTableScan extends AbstractOperation implements TableScan {
 
 	public Relation evaluate() {
 		return null;  //TODO method implementation immars
+	}
+
+	@Override
+	public String toString() {
+		return IndentPrint.print(this);
 	}
 }

@@ -8,18 +8,20 @@ import com.xingcloud.xa.session2.ra.Sum;
  * Author: mulisen
  * Date:   2/7/13
  */
-public class XSum implements Sum {
+public class XSum extends AbstractAggregation implements Sum {
 
 	RelationProvider relation;
 	String columnName;
 	public Aggregation setInput(RelationProvider relation, String columnName) {
-        System.out.println("Sum");
-        this.relation = relation;
+        resetInput();
+		init();
+		this.relation = relation;
 		this.columnName = columnName;
+		addInput(relation);
 		return this;
 	}
 
-	public Object evaluate() {
+	public Object aggregate() {
 		return null;  //TODO method implementation
 	}
 

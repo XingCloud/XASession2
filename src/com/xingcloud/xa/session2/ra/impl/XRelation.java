@@ -12,6 +12,7 @@ import java.util.Map;
  * Date:   2/6/13
  */
 public class XRelation implements Relation {
+
 	Map<String, Integer> columnIndex;
 
 	List<Object[]> rows = new ArrayList<Object[]>();
@@ -35,6 +36,10 @@ public class XRelation implements Relation {
 		}else{
 			return null;
 		}
+	}
+
+	public String toString() {
+		return IndentPrint.print(this);
 	}
 
 	public static class XRow implements Row{

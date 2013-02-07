@@ -12,13 +12,30 @@ import java.util.List;
  * Date:   2/7/13
  */
 public class XGroup extends AbstractOperation implements Group {
+
+
+	RelationProvider relation;
+
+	Expression[] groupingExpressions;
+
+	Expression[] projectionExpressions;
+
 	public Relation evaluate() {
 		return null;  //TODO method implementation
 	}
 
-    @Override
     public Group setInput(RelationProvider relation, Expression[] groupingExpressions, Expression[] projectionExpressions) {
-        System.out.println("Group By");
-        return null;  //TODO method implementation
+		resetInput();
+        this.relation = relation;
+		this.groupingExpressions = groupingExpressions;
+		this.projectionExpressions = projectionExpressions;
+		addInput(relation);
+        return this;
     }
+
+	@Override
+	public String toString() {
+		return IndentPrint.print(this);
+	}
+
 }

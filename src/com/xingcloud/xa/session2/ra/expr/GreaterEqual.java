@@ -7,13 +7,10 @@ import com.xingcloud.xa.session2.ra.Row;
  * Date: 13-2-7
  * Time: 上午10:02
  */
-public class GreaterEqual implements Expression {
-    Expression left;
-    Expression right;
+public class GreaterEqual extends BinaryExpression  {
 
     public GreaterEqual(Expression left, Expression right) {
-        this.left = left;
-        this.right = right;
+		super(left, right);
     }
 
     public Object evaluate(Row input) {

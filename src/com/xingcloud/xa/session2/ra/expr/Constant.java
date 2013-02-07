@@ -8,7 +8,7 @@ import com.xingcloud.xa.session2.ra.Row;
  */
 public class Constant implements Expression{
 
-	Object value;
+	public Object value;
 
 	public Constant(Object value) {
 		this.value = value;

@@ -6,14 +6,10 @@ import com.xingcloud.xa.session2.ra.Row;
  * Author: mulisen
  * Date:   2/7/13
  */
-public class Or implements Expression {
-	Expression left;
-	Expression right;
-
+public class Or extends BinaryExpression {
 
 	public Or(Expression left, Expression right) {
-		this.left = left;
-		this.right = right;
+		super(left, right);
 	}
 
 	public Object evaluate(Row input) {

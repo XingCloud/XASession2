@@ -11,14 +11,23 @@ import java.util.List;
  */
 public class XProjection extends AbstractOperation implements Projection{
 
-	public Projection setInput(RelationProvider relation, Expression ... projections) {
-        System.out.println("Projection");
-		//TODO method implementation
-		return this;
-	}
+	RelationProvider relation;
+	Expression[] projections;
 
 	public Relation evaluate() {
 		return null;  //TODO method implementation
 	}
 
+	public Projection setInput(RelationProvider relation, Expression ... projections) {
+        resetInput();
+		this.relation = relation;
+		this.projections = projections;
+		addInput(relation);
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return IndentPrint.print(this);
+	}
 }

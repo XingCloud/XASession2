@@ -8,7 +8,7 @@ import com.xingcloud.xa.session2.ra.Row;
  */
 public class Not implements Expression {
 
-	Expression input;
+	public Expression input;
 
 	public Not(Expression input) {
 		this.input = input;

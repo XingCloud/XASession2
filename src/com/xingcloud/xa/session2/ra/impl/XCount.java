@@ -8,15 +8,17 @@ import com.xingcloud.xa.session2.ra.RelationProvider;
  * Author: mulisen
  * Date:   2/7/13
  */
-public class XCount implements Count {
+public class XCount extends AbstractAggregation implements Count {
 	RelationProvider relation;
 	public Aggregation setInput(RelationProvider relation) {
-        System.out.println("Count");
+        resetInput();
+		init();
 		this.relation = relation;
+		addInput(relation);
 		return this;
 	}
 
-	public Object evaluate() {
+	public Object aggregate() {
 		return null;  //TODO method implementation
 	}
 
