@@ -12,8 +12,6 @@ import net.sf.jsqlparser.expression.operators.relational.Between;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.statement.select.SubSelect;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

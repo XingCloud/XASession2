@@ -1,5 +1,7 @@
 package com.xingcloud.xa.session2.ra.expr;
 
+import com.xingcloud.xa.session2.ra.Aggregation;
+
 /**
  * Author: mulisen
  * Date:   2/6/13
@@ -46,5 +48,11 @@ public class ExpressionBuilder {
     }
     public static GreaterEqual gte(Expression left, Expression right){
         return new GreaterEqual(left, right);
-    }
+	}
+	public static AggregationExpr aggregation(Aggregation aggregation){
+		return new AggregationExpr(aggregation);
+	}
+	public static Multiple multiple(Expression left, Expression right){
+		return new Multiple(left, right);
+	}
 }
