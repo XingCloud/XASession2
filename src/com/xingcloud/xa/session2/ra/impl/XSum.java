@@ -13,7 +13,8 @@ public class XSum implements Sum {
 	RelationProvider relation;
 	String columnName;
 	public Aggregation setInput(RelationProvider relation, String columnName) {
-		this.relation = relation;
+        System.out.println("Sum");
+        this.relation = relation;
 		this.columnName = columnName;
 		return this;
 	}

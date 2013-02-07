@@ -17,5 +17,5 @@ public interface Group extends Operation {
 	 * @param projectionExpressions 对每个分组之后的子relation，应用这个参数，输出一行
 	 * @returns
 	 */
-	Group setInput(RelationProvider relation, List<Expression> groupingExpressions, List<Expression> projectionExpressions);
+	Group setInput(RelationProvider relation, Expression[] groupingExpressions, Expression[] projectionExpressions);
 }

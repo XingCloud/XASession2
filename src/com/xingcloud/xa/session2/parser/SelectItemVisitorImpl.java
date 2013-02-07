@@ -1,6 +1,8 @@
 package com.xingcloud.xa.session2.parser;
 
-import com.xingcloud.xa.session2.ra.Operation;
+import com.xingcloud.xa.session2.ra.RelationProvider;
+import com.xingcloud.xa.session2.ra.expr.ExpressionBuilder;
+import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.statement.select.*;
 
 import java.util.List;
@@ -11,21 +13,33 @@ import java.util.List;
  * Time: 下午4:23
  */
 public class SelectItemVisitorImpl implements SelectItemVisitor {
-    private String columnName;
-    private Operation function;
+    private RelationProvider relationProvider;
+    private com.xingcloud.xa.session2.ra.expr.Expression expression;
+
+    public SelectItemVisitorImpl(RelationProvider relationProvider){
+        super();
+        this.relationProvider = relationProvider;
+    }
+
+    public com.xingcloud.xa.session2.ra.expr.Expression getExpression(){
+        return expression;
+    }
 
     @Override
     public void visit(AllColumns allColumns) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        expression = ExpressionBuilder.column(allColumns.toString());
     }
 
     @Override
     public void visit(AllTableColumns allTableColumns) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        expression = ExpressionBuilder.column(allTableColumns.toString());
     }
 
     @Override
     public void visit(SelectExpressionItem selectExpressionItem) {
-
+        Expression expression = selectExpressionItem.getExpression();
+        ExpressionVisitorImpl visitor = new ExpressionVisitorImpl(relationProvider);
+        expression.accept(visitor);
+        this.expression = visitor.getExpression();
     }
 }

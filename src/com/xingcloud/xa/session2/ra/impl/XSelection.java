@@ -9,6 +9,7 @@ import com.xingcloud.xa.session2.ra.expr.Expression;
  */
 public class XSelection extends AbstractOperation implements Selection{
 	public Selection setInput(RelationProvider relation, Expression e) {
+        System.out.println("Selection");
 		//TODO method implementation
 		return this;
 	}

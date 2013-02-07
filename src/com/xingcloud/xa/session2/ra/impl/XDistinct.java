@@ -12,6 +12,7 @@ import com.xingcloud.xa.session2.ra.expr.Expression;
  */
 public class XDistinct extends AbstractOperation implements Distinct {
 	public Distinct setInput(RelationProvider relation, Expression ... expressions ) {
+        System.out.println("Distinct");
 		//TODO method implementation
 		return this;
 	}

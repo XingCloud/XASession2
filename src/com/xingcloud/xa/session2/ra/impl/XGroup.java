@@ -16,7 +16,9 @@ public class XGroup extends AbstractOperation implements Group {
 		return null;  //TODO method implementation
 	}
 
-	public Group setInput(RelationProvider relation, List<Expression> groupingExpressions, List<Expression> projectionExpressions) {
-		return null;  //TODO method implementation
-	}
+    @Override
+    public Group setInput(RelationProvider relation, Expression[] groupingExpressions, Expression[] projectionExpressions) {
+        System.out.println("Group By");
+        return null;  //TODO method implementation
+    }
 }

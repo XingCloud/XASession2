@@ -11,6 +11,7 @@ import com.xingcloud.xa.session2.ra.RelationProvider;
 public class XCount implements Count {
 	RelationProvider relation;
 	public Aggregation setInput(RelationProvider relation) {
+        System.out.println("Count");
 		this.relation = relation;
 		return this;
 	}

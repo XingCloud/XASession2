@@ -11,6 +11,7 @@ import com.xingcloud.xa.session2.ra.Row;
  */
 public class XJoin extends AbstractOperation implements Join{
 	public Join setInput(RelationProvider left, RelationProvider right) {
+        System.out.println("Join");
 		//TODO method implementation
 		return this;
 	}
