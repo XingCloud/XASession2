@@ -14,12 +14,12 @@ public class Tests {
     public static String sql2 = "select event, uid from event where date='2013-02-01';";
     public static String sql3 = "SELECT COUNT(DISTINCT(uid))\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
-			                    "WHERE user.register_time='2013-02-01'\n" +
+			                    "WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'\n" +
 			                    "AND event.date='2013-02-02' AND event.event='visit';";
 
     public static String sql4 = "SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(event.value)\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
-			                    "WHERE user.register_time='2013-02-01'\n" +
+								"WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'\n" +
 			                    "AND event.date='2013-02-02' AND event.event='visit' " +
 								"GROUP BY user.ref0;";
 
