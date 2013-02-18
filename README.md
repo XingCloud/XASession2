@@ -30,12 +30,12 @@ XASession2
 
     SELECT COUNT(DISTINCT(uid))
     	FROM (event NATURAL JOIN user)
-    	WHERE user.register_time='2013-02-01'
+    	WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'
     	AND event.date='2013-02-02' AND event.event='visit';
 
     SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(event.value)
     	FROM (event NATURAL JOIN user)
-		WHERE user.register_time='2013-02-01'
+    	WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'
 		AND event.date='2013-02-02' AND event.event='visit'
 		GROUP BY user.ref0;
 
