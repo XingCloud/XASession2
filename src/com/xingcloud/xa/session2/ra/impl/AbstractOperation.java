@@ -26,6 +26,10 @@ public abstract class AbstractOperation implements Operation{
 		inputs.clear();
 	}
 
+	public List<RelationProvider> getInputs() {
+		return inputs;
+	}
+
 	public Row nextRow() {
 		if(result == null){
 			result = this.evaluate();
