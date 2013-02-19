@@ -16,6 +16,6 @@ public class GreaterEqual extends BinaryExpression  {
     public Object evaluate(Row input) {
         Object l = left.evaluate(input);
         Object r = right.evaluate(input);
-        return (Double) l >= (Double) r;
+        return Double.parseDouble(l.toString()) >= Double.parseDouble(r.toString());
     }
 }
