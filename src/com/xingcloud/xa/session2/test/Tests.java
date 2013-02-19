@@ -11,18 +11,19 @@ import net.sf.jsqlparser.JSQLParserException;
 public class Tests {
 
 	public static String sql1 = "select * from user;";
-    public static String sql2 = "select event, uid from event where date='2013-02-01';";
-    public static String sql3 = "SELECT COUNT(DISTINCT(uid))\n" +
+
+	public static String sql2 = "select event, uid from event where date='2013-02-01';";
+
+	public static String sql3 = "SELECT COUNT(DISTINCT(uid))\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
 			                    "WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'\n" +
 			                    "AND event.date='2013-02-02' AND event.event='visit';";
 
-    public static String sql4 = "SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(event.value)\n" +
+    public static String sql4 = "SELECT user.ref0, COUNT(DISTINCT(uid)), SUM(value)\n" +
 			                    "FROM (event NATURAL JOIN user)\n" +
 								"WHERE user.register_time>='20130201000000' AND user.register_time<'20130202000000'\n" +
 			                    "AND event.date='2013-02-02' AND event.event='visit' " +
 								"GROUP BY user.ref0;";
-
 
 	public static void main(String[] args) throws JSQLParserException {
 		PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql1));

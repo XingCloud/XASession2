@@ -10,8 +10,15 @@ public class ColumnValue implements Expression {
 
 	public String columnName;
 
+	public String tableName;
+
 	public ColumnValue(String columnName) {
+		this(columnName, null);
+	}
+
+	public ColumnValue(String columnName, String tableName) {
 		this.columnName = columnName;
+		this.tableName = tableName;
 	}
 
 	public Object evaluate(Row input) {

@@ -38,6 +38,10 @@ public class XRelation implements Relation {
 		}
 	}
 
+	public Map<String, Integer> getColumnIndex() {
+		return columnIndex;
+	}
+
 	public String toString() {
 		return IndentPrint.print(this);
 	}
