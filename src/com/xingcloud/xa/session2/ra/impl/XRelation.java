@@ -48,9 +48,9 @@ public class XRelation implements Relation {
 
 	public static class XRow implements Row{
 
-		private Map<String, Integer> columnNames;
+		public Map<String, Integer> columnNames;
 
-		private Object[] rowData;
+		public Object[] rowData;
 
 		public XRow(Map<String, Integer> columnNames, Object[] rowData) {
 			this.columnNames = columnNames;
