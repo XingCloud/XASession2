@@ -12,6 +12,7 @@ import net.sf.jsqlparser.expression.operators.relational.Between;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.statement.select.SubSelect;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,12 +39,17 @@ public class ExpressionVisitorImpl implements ExpressionVisitor {
 
     public void visit(Function function) {
         String functionName = function.getName();
-        List<Expression> expressions = function.getParameters().getExpressions();
-        com.xingcloud.xa.session2.ra.expr.Expression[] xExpressions = new com.xingcloud.xa.session2.ra.expr.Expression[expressions.size()];
-        for(Expression e: expressions){
-            ExpressionVisitorImpl visitor = new ExpressionVisitorImpl(relationProvider);
-            e.accept(visitor);
-            xExpressions[expressions.indexOf(e)] = visitor.getExpression();
+        ExpressionList parameter = function.getParameters();
+        List<Expression> expressions = new ArrayList<Expression>();
+        com.xingcloud.xa.session2.ra.expr.Expression[] xExpressions = {};
+        if (parameter != null){
+            expressions = function.getParameters().getExpressions();
+            xExpressions = new com.xingcloud.xa.session2.ra.expr.Expression[expressions.size()];
+            for(Expression e: expressions){
+                ExpressionVisitorImpl visitor = new ExpressionVisitorImpl(relationProvider);
+                e.accept(visitor);
+                xExpressions[expressions.indexOf(e)] = visitor.getExpression();
+            }
         }
         Distinct distinct = null;
         if(function.isDistinct()){

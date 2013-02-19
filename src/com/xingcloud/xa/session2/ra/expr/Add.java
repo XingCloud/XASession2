@@ -13,7 +13,7 @@ public class Add extends BinaryExpression {
 	}
 
 	public Object evaluate(Row input) {
-		return (Double)left.evaluate(input) + (Double) right.evaluate(input);
+		return Double.parseDouble(left.evaluate(input).toString()) + Double.parseDouble(right.evaluate(input).toString());
 	}
 
 }

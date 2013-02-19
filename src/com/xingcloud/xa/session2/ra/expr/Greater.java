@@ -16,12 +16,6 @@ public class Greater extends BinaryExpression  {
     public Object evaluate(Row input) {
         Object l = left.evaluate(input);
         Object r = right.evaluate(input);
-        int li = 0;
-        int ri = 0;
-
-        if (l instanceof String){
-
-        }
-        return li > ri;
+        return (Double) l > (Double) r;
     }
 }

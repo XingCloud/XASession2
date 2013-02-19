@@ -19,7 +19,9 @@ public class Between implements Expression {
     }
 
     public Object evaluate(Row input) {
-		return (Double) start.evaluate(input) < (Double) left.evaluate(input)
-				|| (Double) left.evaluate(input) < (Double) end.evaluate(input);
+        Double s = Double.parseDouble(start.evaluate(input).toString());
+        Double l = Double.parseDouble(left.evaluate(input).toString());
+        Double e = Double.parseDouble(end.evaluate(input).toString());
+		return s <= l && e >= l;
     }
 }
