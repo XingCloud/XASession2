@@ -75,16 +75,17 @@ public class SelectVisitorImpl implements SelectVisitor {
         }
 
         //Get projection
-        Projection projection = PlanFactory.getInstance().newProjection();
-        if(group != null){
-            projection.setInput(group, selectExpressions);
-        } else if(xDistinct != null){
-            projection.setInput(xDistinct, selectExpressions);
-        } else{
-            projection.setInput(fromItemVisitor.getRelationProvider(), selectExpressions);
+        if(group == null){
+            Projection projection = PlanFactory.getInstance().newProjection();
+            if(xDistinct != null){
+                projection.setInput(xDistinct, selectExpressions);
+            } else{
+                projection.setInput(fromItemVisitor.getRelationProvider(), selectExpressions);
+            }
+            operation = projection;
+        } else {
+            operation = group;
         }
-
-        operation = projection;
 
     }
 
