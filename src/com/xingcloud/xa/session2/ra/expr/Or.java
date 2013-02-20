@@ -13,6 +13,10 @@ public class Or extends BinaryExpression {
 	}
 
 	public Object evaluate(Row input) {
-		return Boolean.parseBoolean(left.evaluate(input).toString()) || Boolean.parseBoolean(right.evaluate(input).toString());
+		try{
+            return Boolean.parseBoolean(left.evaluate(input).toString()) || Boolean.parseBoolean(right.evaluate(input).toString());
+        } catch (IllegalArgumentException e){
+            return true;
+        }
 	}
 }
