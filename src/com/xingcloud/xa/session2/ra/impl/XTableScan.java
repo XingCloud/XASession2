@@ -86,5 +86,6 @@ public class XTableScan extends AbstractOperation implements TableScan {
 		for(Row row = it.nextRow(); row != null; row = it.nextRow()){
 			System.out.println(row.get("register_time"));
 		}
+		System.out.println(r);
 	}
 }

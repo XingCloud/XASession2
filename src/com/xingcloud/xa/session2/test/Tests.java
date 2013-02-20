@@ -26,9 +26,9 @@ public class Tests {
 								"GROUP BY user.ref0;";
 
 	public static void main(String[] args) throws JSQLParserException {
-		PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql1));
-		PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql2));
-		PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql3));
-		PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql4));
+		System.out.println(PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql1)));
+		System.out.println(PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql2)));
+		System.out.println(PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql3)));
+		System.out.println(PlanExecutor.executePlan(Parser.getInstance().parse(Tests.sql4)));
     }
 }

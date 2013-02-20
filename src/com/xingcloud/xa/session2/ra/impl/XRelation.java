@@ -33,11 +33,43 @@ public class XRelation implements Relation {
 	}
 
 	public String toString() {
-		return IndentPrint.print(this);
+		return this.dump();
 	}
 
 	public RowIterator iterator() {
 		return new XRowIterator(this);
+	}
+
+	public String dump(){
+		String[] columns = new String[columnIndex.size()];
+		for (Map.Entry<String, Integer> entry : columnIndex.entrySet()) {
+			String column = entry.getKey();
+			Integer index = entry.getValue();
+			columns[index]=column;
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < columns.length; i++) {
+			String column = columns[i];
+			sb.append(column);
+			if(i < columns.length-1){
+				sb.append("\t");
+			}else{
+				sb.append("\n");
+			}
+		}
+		for (int i = 0; i < rows.size(); i++) {
+			Object[] row = rows.get(i);
+			for (int j = 0; j < row.length; j++) {
+				Object value = row[j];
+				sb.append(value);
+				if(j < row.length-1){
+					sb.append("\t");
+				}else{
+					sb.append("\n");
+				}
+			}
+		}
+		return sb.toString();
 	}
 
 	public static class XRow implements Row{
