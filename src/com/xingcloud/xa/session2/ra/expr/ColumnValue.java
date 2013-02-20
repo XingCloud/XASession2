@@ -22,6 +22,11 @@ public class ColumnValue implements Expression {
 	}
 
 	public Object evaluate(Row input) {
-		return input.get(columnName);
+
+		Object ret = input.get(columnName);
+		if(null == ret){
+			throw new IllegalArgumentException("cannot find column:"+columnName);
+		}
+		return ret;
 	}
 }

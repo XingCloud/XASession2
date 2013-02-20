@@ -2,6 +2,7 @@ package com.xingcloud.xa.session2.ra.impl;
 
 import com.xingcloud.xa.session2.ra.Relation;
 import com.xingcloud.xa.session2.ra.Row;
+import com.xingcloud.xa.session2.ra.RowIterator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,6 @@ public class XRelation implements Relation {
 
 	List<Object[]> rows = new ArrayList<Object[]>();
 
-	int cursor = -1;
 
 	public XRelation() {
 
@@ -28,22 +28,16 @@ public class XRelation implements Relation {
 		this.rows = rows;
 	}
 
-	public Row nextRow() {
-		cursor++;
-		if(cursor < rows.size()){
-			Object[] rowData = rows.get(cursor);
-			return new XRow(columnIndex, rowData);
-		}else{
-			return null;
-		}
-	}
-
 	public Map<String, Integer> getColumnIndex() {
 		return columnIndex;
 	}
 
 	public String toString() {
 		return IndentPrint.print(this);
+	}
+
+	public RowIterator iterator() {
+		return new XRowIterator(this);
 	}
 
 	public static class XRow implements Row{
@@ -63,6 +57,32 @@ public class XRelation implements Relation {
 
 		public Object get(String columnName) {
 			return get(columnNames.get(columnName));
+		}
+	}
+
+	public static class XRowIterator implements RowIterator{
+
+
+		private final XRelation relation;
+
+		int cursor = -1;
+
+		public XRowIterator(XRelation relation) {
+			this.relation = relation;
+		}
+
+		public Row nextRow() {
+			cursor++;
+			if(cursor < relation.rows.size()){
+				Object[] rowData = relation.rows.get(cursor);
+				return new XRow(relation.columnIndex, rowData);
+			}else{
+				return null;
+			}
+		}
+
+		public boolean hasNext() {
+			return cursor < relation.rows.size();
 		}
 	}
 }

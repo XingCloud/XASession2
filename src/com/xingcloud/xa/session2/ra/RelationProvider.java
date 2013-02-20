@@ -7,5 +7,5 @@ package com.xingcloud.xa.session2.ra;
  * 能产生Relation 的类
  */
 public interface RelationProvider {
-	Row nextRow();
+	RowIterator iterator();
 }

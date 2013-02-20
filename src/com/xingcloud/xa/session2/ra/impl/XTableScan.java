@@ -2,6 +2,7 @@ package com.xingcloud.xa.session2.ra.impl;
 
 import com.xingcloud.xa.session2.ra.Relation;
 import com.xingcloud.xa.session2.ra.Row;
+import com.xingcloud.xa.session2.ra.RowIterator;
 import com.xingcloud.xa.session2.ra.TableScan;
 
 import java.io.BufferedReader;
@@ -81,7 +82,8 @@ public class XTableScan extends AbstractOperation implements TableScan {
 
 	private static void test() {
 		Relation r = new XTableScan("user").evaluate();
-		for(Row row = r.nextRow(); row != null; row = r.nextRow()){
+		RowIterator it = r.iterator();
+		for(Row row = it.nextRow(); row != null; row = it.nextRow()){
 			System.out.println(row.get("register_time"));
 		}
 	}
