@@ -114,7 +114,7 @@ public class XRelation implements Relation {
 		}
 
 		public boolean hasNext() {
-			return cursor < relation.rows.size();
+			return cursor + 1 < relation.rows.size();
 		}
 	}
 }
