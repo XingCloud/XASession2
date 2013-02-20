@@ -4,6 +4,7 @@ import com.xingcloud.xa.session2.ra.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Author: mulisen
@@ -32,5 +33,12 @@ public abstract class AbstractOperation implements Operation{
 			result = this.evaluate();
 		}
 		return result.iterator();
+	}
+
+	public Map<String, Integer> getColumnIndex() {
+		if(result == null){
+			result = this.evaluate();
+		}
+		return result.getColumnIndex();
 	}
 }
