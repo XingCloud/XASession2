@@ -88,7 +88,11 @@ public class XRelation implements Relation {
 		}
 
 		public Object get(String columnName) {
-			return get(columnNames.get(columnName));
+            if(columnNames.get(columnName) != null){
+			    return get(columnNames.get(columnName));
+            } else {
+                return null;
+            }
 		}
 	}
 
