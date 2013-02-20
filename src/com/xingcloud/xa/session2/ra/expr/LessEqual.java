@@ -13,8 +13,12 @@ public class LessEqual extends BinaryExpression {
     }
 
     public Object evaluate(Row input) {
-        Object l = left.evaluate(input);
-        Object r = right.evaluate(input);
-        return Double.parseDouble(l.toString()) <= Double.parseDouble(r.toString());
+        try{
+            Object l = left.evaluate(input);
+            Object r = right.evaluate(input);
+            return Double.parseDouble(l.toString()) <= Double.parseDouble(r.toString());
+        } catch (IllegalArgumentException e){
+            return true;
+        }
     }
 }

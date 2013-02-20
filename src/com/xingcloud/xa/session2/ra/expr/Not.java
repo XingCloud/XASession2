@@ -15,6 +15,10 @@ public class Not implements Expression {
 	}
 
 	public Object evaluate(Row input) {
-		return !Boolean.parseBoolean(this.input.evaluate(input).toString());
+		try{
+            return !Boolean.parseBoolean(this.input.evaluate(input).toString());
+        } catch (IllegalArgumentException e){
+            return true;
+        }
 	}
 }

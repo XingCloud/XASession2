@@ -14,6 +14,12 @@ public class Equals extends BinaryExpression  {
 	}
 
 	public Object evaluate(Row input) {
-		return (Boolean)left.evaluate(input).equals(right.evaluate(input));
+        try{
+            Object l = left.evaluate(input);
+            Object r = right.evaluate(input);
+            return l.equals(r);
+        } catch (IllegalArgumentException e){
+            return true;
+        }
 	}
 }

@@ -13,6 +13,12 @@ public class And extends BinaryExpression  {
 	}
 
 	public Object evaluate(Row input) {
-		return Boolean.parseBoolean(left.evaluate(input).toString()) && Boolean.parseBoolean(right.evaluate(input).toString());
+        try{
+            Object l = left.evaluate(input);
+            Object r = right.evaluate(input);
+            return Boolean.parseBoolean(l.toString()) && Boolean.parseBoolean(r.toString());
+        } catch (IllegalArgumentException e){
+            return true;
+        }
 	}
 }
