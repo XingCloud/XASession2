@@ -60,7 +60,11 @@ public class SelectVisitorImpl implements SelectVisitor {
                 }
             }
             xDistinct = PlanFactory.getInstance().newDistinct();
-            xDistinct.setInput(fromItemVisitor.getRelationProvider(), distinctExpressions);
+            if(distinctItems != null){
+                xDistinct.setInput(fromItemVisitor.getRelationProvider(), distinctExpressions);
+            } else {
+                xDistinct.setInput(fromItemVisitor.getRelationProvider(), selectExpressions);
+            }
         }
 
         //Get group
