@@ -49,6 +49,12 @@ public class ExpressionBuilder {
     public static GreaterEqual gte(Expression left, Expression right){
         return new GreaterEqual(left, right);
 	}
+    public static Less lt(Expression left, Expression right){
+        return new Less(left, right);
+    }
+    public static LessEqual lte(Expression left, Expression right){
+        return new LessEqual(left, right);
+    }
 	public static AggregationExpr aggregation(Aggregation aggregation){
 		return new AggregationExpr(aggregation);
 	}

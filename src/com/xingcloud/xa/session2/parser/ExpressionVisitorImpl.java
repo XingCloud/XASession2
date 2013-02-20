@@ -252,9 +252,27 @@ public class ExpressionVisitorImpl implements ExpressionVisitor {
     }
 
     public void visit(MinorThan minorThan) {
+        Expression left = minorThan.getLeftExpression();
+        ExpressionVisitorImpl leftVisitor = new ExpressionVisitorImpl(relationProvider);
+        left.accept(leftVisitor);
+
+        Expression right = minorThan.getRightExpression();
+        ExpressionVisitorImpl rightVisitor = new ExpressionVisitorImpl(relationProvider);
+        right.accept(rightVisitor);
+
+        expression = ExpressionBuilder.lt(leftVisitor.getExpression(), rightVisitor.getExpression());
     }
 
     public void visit(MinorThanEquals minorThanEquals) {
+        Expression left = minorThanEquals.getLeftExpression();
+        ExpressionVisitorImpl leftVisitor = new ExpressionVisitorImpl(relationProvider);
+        left.accept(leftVisitor);
+
+        Expression right = minorThanEquals.getRightExpression();
+        ExpressionVisitorImpl rightVisitor = new ExpressionVisitorImpl(relationProvider);
+        right.accept(rightVisitor);
+
+        expression = ExpressionBuilder.lte(leftVisitor.getExpression(), rightVisitor.getExpression());
     }
 
     public void visit(NotEqualsTo notEqualsTo) {
