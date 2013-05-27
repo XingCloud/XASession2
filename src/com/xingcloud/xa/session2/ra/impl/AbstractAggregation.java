@@ -19,6 +19,7 @@ public abstract class AbstractAggregation extends AbstractOperation implements A
 		relation.rows = new ArrayList<Object[]>();
 		Object[] row = new Object[1];
 		row[0] = this.aggregate();
+		relation.rows.add(row);
 		return relation;
 	}
 }
